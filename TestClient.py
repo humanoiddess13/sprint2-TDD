@@ -5,27 +5,30 @@ from sys import getsizeof
 
 
 class ClientTestCase(TestCase):
+    """
+    This class is used to test Client
+    """
 
     def test_var(self):
-        client = Client(167,5578342726791879)
+        client = Client(167, 5578342726791879)
         client._id = 157
-        self.assertEqual(client._id,157)
+        self.assertEqual(client._id, 157)
 
     def test_change_private_argument_not_properly(self):
-        client=Client(167,5578342726791879)
+        client = Client(167, 5578342726791879)
         client.change_private_argument_not_properly(5578323212125656)
-        self.assertRaises(AttributeError,client.change_private_argument_not_properly(5578323212125656))
+        self.assertRaises(AttributeError, client.change_private_argument_not_properly(5578323212125656))
 
     def test_change_private_argument(self):
         client = Client(167, 5578342726791879)
-        client.change_private_argument(5578342726791877)
-        self.assertEqual(client._Client__card_number, 5578342726791877)
+        card_number = client.change_private_argument(5578342726791877)
+        self.assertEqual(card_number, 5578342726791877)
 
-    def test_memory_optimizaion(self):
+    def test_memory_optimization(self):
         client = Client(167, 5578342726791879)
         a = getsizeof(client.__slots__)
         b = getsizeof(client.__dict__)
-        self.assertTrue(a<b)
+        self.assertTrue(a < b)
 
     def test_different_arguments_in_memory(self):
         client = Client(167, 5578342726791879)
