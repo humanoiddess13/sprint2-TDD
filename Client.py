@@ -38,7 +38,7 @@ class Client(object):
         self._id = id  # protected variable
         self.__card_number = card_number # private variable
 
-    def change_private_argument_not_properly(self, card_number):
+    def set_private_argument_not_properly(self, card_number):
         """
 
         :param card_number: int
@@ -49,7 +49,7 @@ class Client(object):
 
         self.__card_number = card_number
 
-    def change_private_argument(self, card_number):
+    def set_private_argument(self, card_number):
         """
 
         :param card_number: int
@@ -62,5 +62,4 @@ class Client(object):
         """
 
         self._Client__card_number = card_number
-        return self._Client__card_number
 
